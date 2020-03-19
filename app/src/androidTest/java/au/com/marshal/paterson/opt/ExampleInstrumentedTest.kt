@@ -1,4 +1,4 @@
-package au.com.marshal.paterson.otp_android
+package au.com.marshal.paterson.opt
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

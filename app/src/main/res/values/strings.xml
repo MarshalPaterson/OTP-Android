@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OTP-Android</string>
+    <string name="otp">Please enter your OTP</string>
 </resources>

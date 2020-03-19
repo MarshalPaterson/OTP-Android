@@ -1,4 +1,4 @@
-package au.com.marshal.paterson.otp_android
+package au.com.marshal.paterson.opt
 
 import org.junit.Test
 
