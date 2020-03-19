@@ -29,26 +29,27 @@ abstract class LoginModuleBinds {
 //    @Binds
 //    abstract fun bindViewModelFactory(factory: LoginViewModel_Factory): ViewModelProvider.Factory
 
-    @Singleton
-    @LoginRemoteDataSource
-    @Provides
-    fun provideLoginRemoteDataSource(apiService: ApiAuthService): LoginDataSource {
-        return LoginRemoteDataSource(apiService)
-    }
+//    @Singleton
+//    @LoginRemoteDataSource
+//    @Provides
+//    fun provideLoginRemoteDataSource(apiService: ApiAuthService): LoginDataSource {
+//        //apiService
+//        return au.com.marshal.paterson.opt.app.modules.login.data.api.LoginRemoteDataSource()
+//    }
 //
-    @Qualifier
-    @Retention(AnnotationRetention.RUNTIME)
-    annotation class LoginRemoteDataSource
+//    @Qualifier
+//    @Retention(AnnotationRetention.RUNTIME)
+//    annotation class LoginRemoteDataSource
 
     @Binds
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
 
-    @Singleton
-    @Binds
-    @Named("loginRemoteDataSource")
-    abstract fun bindLoginRemoteDataSource(repo: LoginRemoteDataSource): LoginDataSource
+//    @Singleton
+//    @Binds
+//    @Named("loginRemoteDataSource")
+//    abstract fun bindLoginRemoteDataSource(repo: LoginRemoteDataSource): LoginDataSource
 
 
 }
