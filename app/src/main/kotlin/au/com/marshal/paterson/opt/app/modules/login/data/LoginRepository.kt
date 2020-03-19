@@ -1,18 +1,9 @@
 package au.com.marshal.paterson.opt.app.modules.login.data
 
-import androidx.lifecycle.MediatorLiveData
-import au.com.marshal.paterson.opt.app.modules.login.data.api.LoginRemoteDataSource
-import au.com.marshal.paterson.opt.app.modules.login.model.Login
-import javax.inject.Inject
-import javax.inject.Named
+import au.com.marshal.paterson.opt.app.modules.login.data.api.ApiAuthService
 import javax.inject.Singleton
 
 @Singleton
-class LoginRepository @Inject constructor(
-//    @Named("loginRemoteDataSource")
-//    private val loginRemoteDataSource: LoginRemoteDataSource
-) : LoginDataSource {
-    override fun getLogin(): MediatorLiveData<Login> {
-        return LoginRemoteDataSource().getLogin()
-    }
+class LoginRepository() {
+    var api = ApiAuthService().run("https://api.github.com/users/Evin1-/repos")
 }

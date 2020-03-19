@@ -1,15 +1,23 @@
 package au.com.marshal.paterson.opt.app.modules.login.data.api
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
+import javax.inject.Singleton
 
-import au.com.marshal.paterson.opt.app.modules.login.model.LoginResponseModel
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+private val client = OkHttpClient()
 
-interface ApiAuthService {
+@Singleton
+class ApiAuthService {
+    public fun run(url: String) {
+        val request = Request.Builder()
+            .url(url)
+            .build()
 
-    @POST("/api/rest/casino/v2/jackpot?req=content&dw=320")
-    fun getLogin(): Call<LoginResponseModel>
-
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {}
+            override fun onResponse(call: okhttp3.Call, response: Response) = println(response.body()?.string())
+        })
+    }
 }

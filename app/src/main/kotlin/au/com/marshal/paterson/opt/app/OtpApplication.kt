@@ -1,12 +1,9 @@
 package au.com.marshal.paterson.opt.app
 
-import android.app.Activity
 import android.app.Application
 import android.content.Context
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import au.com.marshal.paterson.opt.app.modules.login.data.api.ApiAuthService
 import au.com.marshal.paterson.opt.app.modules.login.di.LoginModule
 import au.com.marshal.paterson.opt.app.modules.login.ui.LoginActivity
 import dagger.*
@@ -48,9 +45,6 @@ interface AppComponent {
         fun application(application:OtpApplication): Builder
 
         fun build(): AppComponent
-
-//        @Component.Builder
-//        abstract class Builder : AndroidInjector.Builder<OtpApplication>()
     }
 
     fun inject(app:OtpApplication)
@@ -108,14 +102,6 @@ class ViewModelFactory @Inject constructor(
             throw RuntimeException(e)
         }
     }
-}
-
-@Module
-internal abstract class ViewModelBuilder {
-    @Binds
-    internal abstract fun bindViewModelFactory(
-        factory: ViewModelFactory
-    ): ViewModelProvider.Factory
 }
 
 @Module
