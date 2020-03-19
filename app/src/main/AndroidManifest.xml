@@ -3,6 +3,7 @@
     package="au.com.marshal.paterson.opt">
 
     <application
+        android:name="au.com.marshal.paterson.opt.app.OtpApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

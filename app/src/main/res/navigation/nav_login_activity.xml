@@ -9,5 +9,18 @@
         android:id="@+id/loginFragment"
         android:name="au.com.marshal.paterson.opt.app.modules.login.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardFragment"
+        android:name="au.com.marshal.paterson.opt.app.modules.reward.ui.RewardFragment"
+        android:label="reward_fragment"
+        tools:layout="@layout/reward_fragment" >
+        <action
+            android:id="@+id/action_rewardFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

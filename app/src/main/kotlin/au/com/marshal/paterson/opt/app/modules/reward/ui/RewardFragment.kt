@@ -8,8 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import au.com.marshal.paterson.opt.R
 import au.com.marshal.paterson.opt.app.modules.reward.viewmodel.RewardViewModel
+import dagger.android.support.DaggerFragment
 
-class RewardFragment : Fragment() {
+class RewardFragment : DaggerFragment() {
 
     companion object {
         fun newInstance() =

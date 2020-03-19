@@ -11,5 +11,19 @@
         android:gravity="center"
         android:text="@string/otp"
         />
+    <EditText
+        android:id="@+id/edtPassword"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Enter password"
+    android:inputType="textPassword" />
+
+    <ImageButton
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/search"
+        android:clickable="true"
+        android:onClick="login"/>
 
 </FrameLayout>
