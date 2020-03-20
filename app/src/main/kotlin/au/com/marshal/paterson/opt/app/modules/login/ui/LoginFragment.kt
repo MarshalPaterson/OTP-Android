@@ -19,8 +19,6 @@ class LoginFragment : DaggerFragment() {
 
     @Inject
     lateinit var loginModelFactory: ViewModelProvider.Factory
-
-    //var status: String = ""
     private val viewModel by viewModels<LoginViewModel> { loginModelFactory }
     private var gotoFlag: Boolean = false
 
