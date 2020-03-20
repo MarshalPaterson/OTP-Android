@@ -12,39 +12,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/otp" />
+        android:paddingBottom="175dp"
+        android:text="@string/otp"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/upperView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:padding="10dip">
 
         <EditText
             android:id="@+id/otpNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_weight=".70"
+
             android:gravity="center"
-            android:hint="Enter password"
+            android:hint=""
             android:inputType="numberPassword" />
 
         <ImageButton
             android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentRight="true"
             android:clickable="true"
+            android:gravity="center"
             android:onClick="login"
             android:src="@drawable/search" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="62dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="14dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

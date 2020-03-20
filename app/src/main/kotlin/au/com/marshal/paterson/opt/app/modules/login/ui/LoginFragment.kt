@@ -46,7 +46,6 @@ class LoginFragment : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         val loginObserver = Observer<String> { newstatus ->
             if(newstatus == "ok" && !gotoFlag) {
                 result.text = ""

@@ -43,7 +43,7 @@ class ApiAuthService {
                     viewModel.login.postValue(login.status)
 
                 } catch (e: Exception) {
-                    viewModel.login.postValue("Login Error.")
+                    viewModel.login.postValue("Failed to login, please try again.")
                 }
             }
         })
