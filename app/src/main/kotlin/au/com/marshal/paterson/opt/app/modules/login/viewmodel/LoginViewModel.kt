@@ -4,18 +4,23 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import au.com.marshal.paterson.opt.app.modules.login.data.LoginRepository
-import au.com.marshal.paterson.opt.app.modules.login.model.Login
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class LoginViewModel @Inject constructor() : AndroidViewModel(Application()) {
 
-    private var loginResult = LoginRepository().api
-
-    val login: MediatorLiveData<Login> by lazy {
-        MediatorLiveData<Login>()
+    var searchText: String = ""
+    val login: MediatorLiveData<String> by lazy {
+        MediatorLiveData<String>()
     }
 
+    fun doLogin() {
+            LoginRepository(
+                "http://floral-cherry-7673.getsandbox.com/login",
+                searchText,
+                this
+            ).api
+    }
 }
 

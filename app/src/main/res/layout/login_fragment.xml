@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".LoginFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/otp"
-        />
-    <EditText
-        android:id="@+id/edtPassword"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Enter password"
-    android:inputType="textPassword" />
+        android:text="@string/otp" />
 
-    <ImageButton
-        android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/upperView"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/search"
-        android:clickable="true"
-        android:onClick="login"/>
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical"
+        android:padding="10dip">
 
-</FrameLayout>
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:hint="Enter password"
+            android:inputType="textPassword" />
+
+        <ImageButton
+            android:id="@+id/loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="login"
+            android:src="@drawable/search" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
