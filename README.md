@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/MarshalPaterson/OTP-Android.svg?branch=master)](https://travis-ci.org/MarshalPaterson/OTP-Android) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 # OTP-Android
-MVVM, Clean Architecture and SOLID principles. Implemented with Kotlin.
+Implemented with Kotlin.
 
 ```
 git clone https://github.com/MarshalPaterson/OTP-Android.git
@@ -10,7 +10,7 @@ git clone https://github.com/MarshalPaterson/OTP-Android.git
 ![Alt text](readmeAssets/demo.gif?raw=true "Demo")
 
 # Run the app
-Open file the project in Android Studio.
+Open the project in Android Studio.
 
 # Dependencies Gradle
 Lottie has been imported in Gradle, okhttp3 and Dagger.
