@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import au.com.marshal.paterson.opt.R
 import au.com.marshal.paterson.opt.app.modules.login.viewmodel.LoginViewModel
 import dagger.android.support.DaggerFragment
@@ -40,12 +44,25 @@ class LoginFragment : DaggerFragment() {
         val loginObserver = Observer<String> { newstatus ->
             status = newstatus
             result.text = status
+            goto()
         }
         viewModel.login.observe(viewLifecycleOwner, loginObserver)
 
         loginBtn.setOnClickListener {
-            print("this")
+            viewModel.searchText = otpNumber.text.toString()
             viewModel.doLogin()
         }
+
+    }
+
+    fun goto() {
+
+        view?.findNavController()?.navigate(R.id.action_loginFragment_to_rewardFragment)
+//            val host = NavHostFragment.create(R.navigation.nav_login_activity)
+//            findNavController().navigate(R.id.action_loginFragment_to_rewardFragment)
+////            val navigator = this.findNavController()
+////
+////            var mNavigation = findViewById(R.id.nav_login_activity);
+//            this.activity?.let { Navigation.findNavController(it, R.id.action_loginFragment_to_rewardFragment) };
     }
 }

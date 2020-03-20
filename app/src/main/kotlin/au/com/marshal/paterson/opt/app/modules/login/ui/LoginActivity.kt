@@ -3,6 +3,7 @@ package au.com.marshal.paterson.opt.app.modules.login.ui
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.fragment.NavHostFragment
 import au.com.marshal.paterson.opt.R
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
@@ -16,5 +17,9 @@ class LoginActivity : DaggerAppCompatActivity() {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val hostNav = NavHostFragment.create(R.navigation.nav_login_activity)
+        //supportFragmentManager.beginTransaction().replace(R.id. host).setPrimaryNavigationFragment(host).commit()
+
     }
 }

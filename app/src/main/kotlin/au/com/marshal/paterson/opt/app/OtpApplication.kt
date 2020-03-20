@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import au.com.marshal.paterson.opt.app.modules.login.di.LoginModule
 import au.com.marshal.paterson.opt.app.modules.login.ui.LoginActivity
+import au.com.marshal.paterson.opt.app.modules.reward.di.RewardModule
 import dagger.*
 import dagger.android.*
 import javax.inject.Inject
@@ -33,6 +34,7 @@ abstract class ActivityBuilder {
     AppModule::class,
     AndroidInjectionModule::class,
     ViewModelModule::class,
+    RewardModule::class,
     ActivityBuilder::class,
     LoginModule::class])
 

@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import au.com.marshal.paterson.opt.R
+import au.com.marshal.paterson.opt.app.modules.login.viewmodel.LoginViewModel
 import au.com.marshal.paterson.opt.app.modules.reward.viewmodel.RewardViewModel
 import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
 class RewardFragment : DaggerFragment() {
 
@@ -17,7 +21,9 @@ class RewardFragment : DaggerFragment() {
             RewardFragment()
     }
 
-    private lateinit var viewModel: RewardViewModel
+    @Inject
+    lateinit var rewardModelFactory: ViewModelProvider.Factory
+    private val viewModel by viewModels<RewardViewModel> { rewardModelFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +34,7 @@ class RewardFragment : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RewardViewModel::class.java)
+       // viewModel = ViewModelProviders.of(this).get(RewardViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
