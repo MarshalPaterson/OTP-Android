@@ -7,10 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import au.com.marshal.paterson.opt.R
 import au.com.marshal.paterson.opt.app.modules.login.viewmodel.LoginViewModel
 import dagger.android.support.DaggerFragment
@@ -25,7 +22,7 @@ class LoginFragment : DaggerFragment() {
 
     //var status: String = ""
     private val viewModel by viewModels<LoginViewModel> { loginModelFactory }
-    private var gotoFlag:Boolean = false
+    private var gotoFlag: Boolean = false
 
     companion object {
         fun newInstance() = LoginFragment()
@@ -47,24 +44,32 @@ class LoginFragment : DaggerFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val loginObserver = Observer<String> { newstatus ->
-            if(newstatus == "ok" && !gotoFlag) {
+
+            if (newstatus == "ok" && !gotoFlag) {
                 result.text = ""
                 gotoFlag = true
                 goto()
             } else {
                 result.text = newstatus
+                progress_loader.visibility = View.GONE
             }
         }
         viewModel.login.observe(viewLifecycleOwner, loginObserver)
 
         loginBtn.setOnClickListener {
+            showLoading()
             gotoFlag = false
             viewModel.doLogin(otpNumber.text.toString())
         }
 
     }
 
+    fun showLoading() {
+        progress_loader.visibility = View.VISIBLE
+    }
+
     fun goto() {
         view?.findNavController()?.navigate(R.id.action_loginFragment_to_rewardFragment)
-  }
+        progress_loader.visibility = View.GONE
+    }
 }

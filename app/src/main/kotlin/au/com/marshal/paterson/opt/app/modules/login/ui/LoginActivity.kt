@@ -1,9 +1,7 @@
 package au.com.marshal.paterson.opt.app.modules.login.ui
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
 import au.com.marshal.paterson.opt.R
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
@@ -11,7 +9,7 @@ import javax.inject.Inject
 
 class LoginActivity : DaggerAppCompatActivity() {
     @Inject
-    lateinit var app :Context
+    lateinit var app: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
