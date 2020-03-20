@@ -58,5 +58,6 @@ dependencies {
     kapt 'com.google.dagger:dagger-android-processor:2.24'
     kapt 'com.google.dagger:dagger-compiler:2.24'
     implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
+    implementation 'com.airbnb.android:lottie:3.0.0-beta1'
 
 }

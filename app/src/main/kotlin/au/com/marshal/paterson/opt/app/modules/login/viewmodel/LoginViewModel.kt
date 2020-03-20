@@ -10,12 +10,12 @@ import javax.inject.Singleton
 @Singleton
 class LoginViewModel @Inject constructor() : AndroidViewModel(Application()) {
 
-    var searchText: String = ""
+  //  var searchText: String = ""
     val login: MediatorLiveData<String> by lazy {
         MediatorLiveData<String>()
     }
 
-    fun doLogin() {
+    fun doLogin(searchText:String) {
             LoginRepository(
                 "http://floral-cherry-7673.getsandbox.com/login",
                 searchText,

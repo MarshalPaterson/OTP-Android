@@ -17,9 +17,7 @@ class LoginActivity : DaggerAppCompatActivity() {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        val hostNav = NavHostFragment.create(R.navigation.nav_login_activity)
-        //supportFragmentManager.beginTransaction().replace(R.id. host).setPrimaryNavigationFragment(host).commit()
-
+        if (supportActionBar != null)
+            supportActionBar?.hide()
     }
 }

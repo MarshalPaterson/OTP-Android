@@ -23,8 +23,9 @@ class LoginFragment : DaggerFragment() {
     @Inject
     lateinit var loginModelFactory: ViewModelProvider.Factory
 
-    var status: String = ""
+    //var status: String = ""
     private val viewModel by viewModels<LoginViewModel> { loginModelFactory }
+    private var gotoFlag:Boolean = false
 
     companion object {
         fun newInstance() = LoginFragment()
@@ -38,31 +39,33 @@ class LoginFragment : DaggerFragment() {
         return inflater.inflate(R.layout.login_fragment, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        result.text = ""
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val loginObserver = Observer<String> { newstatus ->
-            status = newstatus
-            result.text = status
-            goto()
+            if(newstatus == "ok" && !gotoFlag) {
+                result.text = ""
+                gotoFlag = true
+                goto()
+            } else {
+                result.text = newstatus
+            }
         }
         viewModel.login.observe(viewLifecycleOwner, loginObserver)
 
         loginBtn.setOnClickListener {
-            viewModel.searchText = otpNumber.text.toString()
-            viewModel.doLogin()
+            gotoFlag = false
+            viewModel.doLogin(otpNumber.text.toString())
         }
 
     }
 
     fun goto() {
-
         view?.findNavController()?.navigate(R.id.action_loginFragment_to_rewardFragment)
-//            val host = NavHostFragment.create(R.navigation.nav_login_activity)
-//            findNavController().navigate(R.id.action_loginFragment_to_rewardFragment)
-////            val navigator = this.findNavController()
-////
-////            var mNavigation = findViewById(R.id.nav_login_activity);
-//            this.activity?.let { Navigation.findNavController(it, R.id.action_loginFragment_to_rewardFragment) };
-    }
+  }
 }

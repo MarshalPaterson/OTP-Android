@@ -8,22 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavHostController
+import androidx.navigation.findNavController
 import au.com.marshal.paterson.opt.R
 import au.com.marshal.paterson.opt.app.modules.login.viewmodel.LoginViewModel
-import au.com.marshal.paterson.opt.app.modules.reward.viewmodel.RewardViewModel
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.reward_fragment.*
 import javax.inject.Inject
 
-class RewardFragment : DaggerFragment() {
+class RewardFragment : Fragment() {
 
     companion object {
         fun newInstance() =
             RewardFragment()
     }
 
-    @Inject
-    lateinit var rewardModelFactory: ViewModelProvider.Factory
-    private val viewModel by viewModels<RewardViewModel> { rewardModelFactory }
+//    @Inject
+//    lateinit var rewardModelFactory: ViewModelProvider.Factory
+//    private val viewModel by viewModels<RewardViewModel> { rewardModelFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +36,11 @@ class RewardFragment : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-       // viewModel = ViewModelProviders.of(this).get(RewardViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        back.setOnClickListener {
+           view?.findNavController()?.popBackStack()
+           // view?.findNavController()?.navigate(R.id.action_rewardFragment_to_loginFragment)
+        }
     }
 
 }
