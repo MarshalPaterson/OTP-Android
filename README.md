@@ -19,7 +19,7 @@ Lottie has been imported in Gradle, okhttp3 and Dagger.
 The test can be run in Android Studio, there are some Unit Tests, needs more.
 
 ## TravisCI integrated
-There is TravisCI builds with yaml file
+There is TravisCI builds with yaml file - Though at the moment Gradle version is different between the project and TravisCI.
 
 ## Notes:
 There is limited comments, approach taken is best to read the code to understand its functionality.
