@@ -33,18 +33,23 @@ class ApiAuthService {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: okhttp3.Call, e: IOException) {
                 print(e.message)
+
+                /// The Backend API has been disabled/ Mock a successful response. Once setup remove below.
+                viewModel.login.postValue("ok")
             }
 
             override fun onResponse(call: okhttp3.Call, response: Response) {
-                try {
-                    var gson = Gson()
-                    var jsonString = response.body()?.string()
-                    var login = gson.fromJson(jsonString, Login::class.java)
-                    viewModel.login.postValue(login.status)
 
-                } catch (e: Exception) {
-                    viewModel.login.postValue("Failed to login, please try again.")
-                }
+                /// Backend API has been disabled, though when setup you can use the response below.
+//                try {
+//                    var gson = Gson()
+//                    var jsonString = response.body()?.string()
+//                    var login = gson.fromJson(jsonString, Login::class.java)
+//                    viewModel.login.postValue(login.status)
+//
+//                } catch (e: Exception) {
+//                    viewModel.login.postValue("Failed to login, please try again.")
+//                }
             }
         })
     }

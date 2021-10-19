@@ -7,6 +7,9 @@ Implemented with Kotlin.
 git clone https://github.com/MarshalPaterson/OTP-Android.git
 ```
 
+# About
+This is a demo on how to approach a modern Android development project.
+
 ![Alt text](readmeAssets/demo.gif?raw=true "Demo")
 
 # Run the app

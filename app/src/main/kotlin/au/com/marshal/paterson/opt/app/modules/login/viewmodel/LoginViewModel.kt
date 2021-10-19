@@ -10,13 +10,16 @@ import javax.inject.Singleton
 @Singleton
 class LoginViewModel @Inject constructor() : AndroidViewModel(Application()) {
 
+    /// This need to change to a backend login API
+    val URL = "http://floral-cherry-7673.getsandbox.com/login"
+
     val login: MediatorLiveData<String> by lazy {
         MediatorLiveData<String>()
     }
 
     fun doLogin(searchText: String) {
         LoginRepository(
-            "http://floral-cherry-7673.getsandbox.com/login",
+            URL,
             searchText,
             this
         ).api
