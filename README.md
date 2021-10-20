@@ -1,4 +1,6 @@
 [![CircleCI](https://circleci.com/gh/MarshalPaterson/OTP-Android/tree/master.svg?style=svg)](https://circleci.com/gh/MarshalPaterson/OTP-Android/tree/master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 # OTP-Android
 Implemented with Kotlin.
